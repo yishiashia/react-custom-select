@@ -5,21 +5,19 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: `${__dirname}/src/index.html`,
-  filename: 'leads.html',
+  filename: 'index.html',
   inject: 'body',
 });
 
 module.exports = {
   cache: false,
   entry: {
-    leads: './src/index.js'
+    index: './src/index.js'
   },
   optimization: {
     minimizer: [
       new TerserPlugin({
-        cache: true,
         parallel: true,
-        sourceMap: true // set to true if you want JS source maps
       }),
       new OptimizeCSSAssetsPlugin({})
     ]
